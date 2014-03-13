@@ -61,8 +61,8 @@ def time(value, arg=None):
 def truncatewords(value, length):
     # Jinja2 has it's own ``truncate`` filter that supports word
     # boundaries and more stuff, but cannot deal with HTML.
-    from django.utils.text import truncate_words
-    return truncate_words(value, int(length))
+    from django.template.defaultfilters import truncatewords
+    return truncatewords(value, int(length))
 
 @register.jinja2_filter(jinja2_only=True)
 def truncatewords_html(value, length):
